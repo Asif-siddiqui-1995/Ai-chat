@@ -81,11 +81,14 @@ export default function App() {
         setAnswer("Running...");
 
         try {
-            const res = await fetch("http://localhost:5000/api/ask-ai", {
-                method: "POST",
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify({prompt}),
-            });
+            const res = await fetch(
+                "https://ai-chat-axc6.onrender.com/api/ask-ai",
+                {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({prompt}),
+                }
+            );
 
             const data = await res.json();
             setAnswer(data.answer);
@@ -105,7 +108,7 @@ export default function App() {
         }
 
         try {
-            await fetch("http://localhost:5000/api/save-chat", {
+            await fetch("https://ai-chat-axc6.onrender.com/api/save-chat", {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({
